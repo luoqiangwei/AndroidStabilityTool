@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">稳定性工具箱</string>
+    <string name="home_page_title">稳定性工具首页</string>
+    <string name="home_tips">本工具用于模拟测试该设备不同类型的稳定性状况</string>
+    <string name="anr_test">ANR类别</string>
+    <string name="crash_test">Crash类别</string>
+    <string name="cpu_test">CPU性能类别</string>
+    <string name="disk_test">磁盘I/O类别</string>
+    <string name="memory_test">内存类别</string>
+    <string name="network_test">网络类别</string>
+    <string name="power_test">功耗类别</string>
+    <string name="anr_input_io_file">文件IO堵塞（交互ANR）</string>
+    <string name="anr_input_network_file">网络IO堵塞（交互ANR）</string>
+    <string name="anr_input_loop_or_timeout">死循环 / 耗时（交互ANR）</string>
+    <string name="anr_input_sleep">线程睡眠（交互ANR）</string>
+    <string name="anr_input_wait">等待被唤醒（交互ANR）</string>
+    <string name="anr_input_deadlock">死锁（交互ANR）</string>
+    <string name="anr_input_ui_timeout">UI超时（交互ANR）</string>
+    <string name="anr_common_tip">即将触发ANR，App将会“冻结”</string>
+    <string name="anr_input_tip">即将触发ANR，请连续点击屏幕，App将会“冻结”</string>
+</resources>

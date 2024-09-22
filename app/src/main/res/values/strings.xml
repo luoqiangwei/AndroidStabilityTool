@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">StabilityTool</string>
+    <string name="home_page_title">Stability Tool Home</string>
+    <string name="home_tips">This tool is designed to simulate and test various types of stability conditions on this device.</string>
+    <string name="anr_test">ANR Category</string>
+    <string name="crash_test">Crash Category</string>
+    <string name="cpu_test">CPU Performance Category</string>
+    <string name="disk_test">Disk I/O Category</string>
+    <string name="memory_test">Memory Category</string>
+    <string name="network_test">Network Category</string>
+    <string name="power_test">Power Category</string>
+    <string name="anr_input_io_file">File IO Block (Input Anr)</string>
+    <string name="anr_input_network_file">Network IO Block (Input Anr)</string>
+    <string name="anr_input_loop_or_timeout">Loop / Timeout (Input Anr)</string>
+    <string name="anr_input_sleep">Sleep (Input Anr)</string>
+    <string name="anr_input_wait">Wait (Input Anr)</string>
+    <string name="anr_input_deadlock">Dead lock (Input Anr)</string>
+    <string name="anr_input_ui_timeout">UI Timeout (Input Anr)</string>
+    <string name="anr_common_tip">ANR will be triggered soon, and the app will \'freeze\'</string>
+    <string name="anr_input_tip">ANR will be triggered soon, please keep tapping the screen, the app will \'freeze\'</string>
+</resources>
