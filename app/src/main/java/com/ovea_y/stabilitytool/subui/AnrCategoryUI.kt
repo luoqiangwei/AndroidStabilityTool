@@ -10,14 +10,17 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.ArrowBack
 import androidx.compose.material.ripple.rememberRipple
+import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -36,6 +39,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -105,7 +109,15 @@ fun AnrCategoryPage(navController: NavHostController) {
                 if (latestExitReason != null) {
                     Text("Last ANR Reason: ${latestExitReason.description}")
                 }
-
+                
+                // Input ANR 测试部分
+                Text(
+                    "Input ANR 测试 (5秒超时)",
+                    modifier = Modifier.fillMaxWidth(),
+                    style = MaterialTheme.typography.titleMedium,
+                    textAlign = TextAlign.Start
+                )
+                
                 Row() {
                     Column(modifier = Modifier
                         .padding(all = ColumnCommonPadding)
@@ -137,6 +149,24 @@ fun AnrCategoryPage(navController: NavHostController) {
                                 anrSimulator.causeIOANR(context)
                             }, 1000)
                         }
+                        
+                        CommonButton(text = "线程等待ANR") {
+                            coroutineScope.launch {
+                                snackbarHostState.showSnackbar(anrInputTip)
+                            }
+                            android.os.Handler(Looper.getMainLooper()).postDelayed({
+                                anrSimulator.causeThreadWaitANR()
+                            }, 1000)
+                        }
+
+//                        CommonButton(text = "Input无焦点窗口ANR") {
+//                            coroutineScope.launch {
+//                                snackbarHostState.showSnackbar("重新启动程序，且不断点击屏幕触发")
+//                            }
+//                            android.os.Handler(Looper.getMainLooper()).postDelayed({
+//                                anrSimulator.causeNotFocusedWindowANR(context)
+//                            }, 1000)
+//                        }
                     }
                     Column(modifier = Modifier
                         .padding(all = ColumnCommonPadding)
@@ -161,25 +191,97 @@ fun AnrCategoryPage(navController: NavHostController) {
                         }
                         // Test UI ANR
                         anrSimulator.causeUIANR(itemCount)
-
+                        
+                        CommonButton(text = "同步方法ANR") {
+                            coroutineScope.launch {
+                                snackbarHostState.showSnackbar(anrInputTip)
+                            }
+                            android.os.Handler(Looper.getMainLooper()).postDelayed({
+                                anrSimulator.causeSynchronizedMethodANR()
+                            }, 1000)
+                        }
+                        
+                        CommonButton(text = "系统调用ANR") {
+                            coroutineScope.launch {
+                                snackbarHostState.showSnackbar(anrInputTip)
+                            }
+                            android.os.Handler(Looper.getMainLooper()).postDelayed({
+                                anrSimulator.causeSystemCallANR(context)
+                            }, 1000)
+                        }
+                    }
+                }
+                
+                Spacer(modifier = Modifier.height(16.dp))
+                Divider()
+                Spacer(modifier = Modifier.height(16.dp))
+                
+                // 组件ANR测试部分
+                Text(
+                    "组件ANR测试",
+                    modifier = Modifier.fillMaxWidth(),
+                    style = MaterialTheme.typography.titleMedium,
+                    textAlign = TextAlign.Start
+                )
+                
+                Row() {
+                    Column(modifier = Modifier
+                        .padding(all = ColumnCommonPadding)
+                        .fillMaxSize(0.5f)) {
+                        
+                        CommonButton(text = "广播接收器ANR (10秒)") {
+                            coroutineScope.launch {
+                                snackbarHostState.showSnackbar("将触发广播接收器ANR，请等待...")
+                            }
+                            android.os.Handler(Looper.getMainLooper()).postDelayed({
+                                anrSimulator.causeBroadcastReceiverANR(context)
+                            }, 1000)
+                        }
+                        
+                        CommonButton(text = "Service ANR (20秒)") {
+                            coroutineScope.launch {
+                                snackbarHostState.showSnackbar("将触发Service ANR，请等待...")
+                            }
+                            android.os.Handler(Looper.getMainLooper()).postDelayed({
+                                anrSimulator.causeServiceANR(context)
+                            }, 1000)
+                        }
+                    }
+                    
+                    Column(modifier = Modifier
+                        .padding(all = ColumnCommonPadding)
+                        .fillMaxSize()) {
+                        
+                        // ContentProvider需要在AndroidManifest.xml中注册，这里只是显示按钮
+                        CommonButton(text = "App启动超时未完成") {
+                            coroutineScope.launch {
+                                snackbarHostState.showSnackbar("将触发App启动 ANR，请重新点击App触发异常")
+                            }
+                            android.os.Handler(Looper.getMainLooper()).postDelayed({
+                                anrSimulator.causeAppStartANR(context)
+                            }, 1000)
+                        }
+                        
                         // StrictMode: NetworkOnMainThreadException
-//                        CommonButton(text = stringResource(R.string.anr_input_network_file)) {
-//                            coroutineScope.launch {
-//                                snackbarHostState.showSnackbar(anrInputTip)
-//                            }
-//                            android.os.Handler(Looper.getMainLooper()).postDelayed({
-//                                anrSimulator.causeNetworkIOANR()
-//                            }, 1000)
-//                        }
-
-
+                        CommonButton(text = "网络IO ANR") {
+                            coroutineScope.launch {
+                                snackbarHostState.showSnackbar("注意：在Android 9+上，这会触发StrictMode异常而不是ANR")
+                            }
+                            android.os.Handler(Looper.getMainLooper()).postDelayed({
+                                try {
+                                    anrSimulator.causeNetworkIOANR()
+                                } catch (e: Exception) {
+                                    coroutineScope.launch {
+                                        snackbarHostState.showSnackbar("触发了异常: ${e.javaClass.simpleName}")
+                                    }
+                                }
+                            }, 1000)
+                        }
                     }
                 }
             }
         }
     }
-
-
 }
 
 @Preview(showBackground = true)

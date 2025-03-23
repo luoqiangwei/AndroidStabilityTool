@@ -3,13 +3,41 @@
     <string name="app_name">稳定性工具箱</string>
     <string name="home_page_title">稳定性工具首页</string>
     <string name="home_tips">本工具用于模拟测试该设备不同类型的稳定性状况</string>
+    
+    <!-- 通用字符串 -->
+    <string name="stop_all_tests">停止所有测试</string>
+    <string name="stopping_tests">正在停止所有测试...</string>
+    <string name="back">返回</string>
+    <string name="clear_log">清除日志</string>
+    <string name="no_logs">暂无日志</string>
+    <string name="test_logs">测试日志</string>
+    <string name="authorize_now">立即授权</string>
+    <string name="tests_stopped">已停止所有测试</string>
+    <string name="details_info">详细信息</string>
+    
+    <!-- 权限相关 -->
+    <string name="missing_overlay_permission">缺少悬浮窗权限</string>
+    <string name="overlay_permission_required">窗口泄漏测试需要悬浮窗权限才能正常运行</string>
+    <string name="overlay_permission_granted">已获得悬浮窗权限，可以进行窗口泄漏测试</string>
+    <string name="please_allow_overlay">请在设置中允许显示在其他应用上层</string>
+    <string name="cannot_open_settings">无法打开权限设置页面: %1$s</string>
+    <string name="window_leak_test">窗口泄漏测试</string>
+    <string name="permission_required">需要悬浮窗权限</string>
+    <string name="activity_leak_test">Activity泄漏测试</string>
+    <string name="activity_instance_error">无法获取Activity实例</string>
+    <string name="unknown_error">未知错误</string>
+    <string name="missing_boot_permission">注意：缺少RECEIVE_BOOT_COMPLETED权限，无法设置任务持久化</string>
+    
+    <!-- 主页类别 -->
     <string name="anr_test">ANR类别</string>
-    <string name="crash_test">Crash类别</string>
+    <string name="crash_test">崩溃类别</string>
     <string name="cpu_test">CPU性能类别</string>
     <string name="disk_test">磁盘I/O类别</string>
     <string name="memory_test">内存类别</string>
     <string name="network_test">网络类别</string>
-    <string name="power_test">功耗类别</string>
+    <string name="power_test">电源类别</string>
+    
+    <!-- ANR测试 -->
     <string name="anr_input_io_file">文件IO堵塞（交互ANR）</string>
     <string name="anr_input_network_file">网络IO堵塞（交互ANR）</string>
     <string name="anr_input_loop_or_timeout">死循环 / 耗时（交互ANR）</string>
@@ -17,6 +45,189 @@
     <string name="anr_input_wait">等待被唤醒（交互ANR）</string>
     <string name="anr_input_deadlock">死锁（交互ANR）</string>
     <string name="anr_input_ui_timeout">UI超时（交互ANR）</string>
-    <string name="anr_common_tip">即将触发ANR，App将会“冻结”</string>
-    <string name="anr_input_tip">即将触发ANR，请连续点击屏幕，App将会“冻结”</string>
+    <string name="anr_common_tip">即将触发ANR，App将会"冻结"</string>
+    <string name="anr_input_tip">即将触发ANR，请连续点击屏幕，App将会"冻结"</string>
+    
+    <!-- 新增ANR测试字符串 -->
+    <string name="anr_thread_wait">线程等待ANR</string>
+    <string name="anr_synchronized_method">同步方法ANR</string>
+    <string name="anr_system_call">系统调用ANR</string>
+    <string name="anr_broadcast_receiver">广播接收器ANR (10秒)</string>
+    <string name="anr_content_provider">ContentProvider ANR (10秒)</string>
+    <string name="anr_service">Service ANR (20秒)</string>
+    <string name="anr_broadcast_receiver_tip">将触发广播接收器ANR，请等待...</string>
+    <string name="anr_service_tip">将触发Service ANR，请等待...</string>
+    <string name="anr_content_provider_tip">ContentProvider需要在AndroidManifest.xml中注册，此按钮仅作示例</string>
+    <string name="anr_network_tip">注意：在Android 9+上，这会触发StrictMode异常而不是ANR</string>
+    <string name="anr_exception_triggered">触发了异常: %1$s</string>
+    
+    <!-- 崩溃测试 -->
+    <string name="crash_common_tip">即将触发崩溃，应用可能会关闭</string>
+    <string name="crash_null_pointer">空指针异常</string>
+    <string name="crash_array_index">数组越界异常</string>
+    <string name="crash_class_cast">类型转换异常</string>
+    <string name="crash_oom">内存溢出错误</string>
+    <string name="crash_stack_overflow">栈溢出错误</string>
+    <string name="crash_sigsegv">SIGSEGV（段错误）</string>
+    <string name="crash_sigabrt">SIGABRT（中止）</string>
+    <string name="crash_app_exit">应用退出</string>
+    <string name="crash_filesystem">文件系统崩溃</string>
+    
+    <!-- CPU性能测试 -->
+    <string name="cpu_common_tip">CPU测试即将开始，设备可能会发热</string>
+    <string name="cpu_single_core">单核高负载</string>
+    <string name="cpu_multi_core">多核高负载</string>
+    <string name="cpu_single_core_high_load">单核心高负载测试</string>
+    <string name="cpu_multi_core_high_load">多核心高负载测试</string>
+    <string name="cpu_frequent_gc">频繁垃圾回收</string>
+    <string name="cpu_thread_churn">线程创建与销毁</string>
+    <string name="cpu_prime_calculation">素数计算</string>
+    <string name="cpu_temperature_rise">温度升高测试</string>
+    
+    <!-- 内存测试 -->
+    <string name="memory_common_tip">内存测试即将开始，应用可能会变慢</string>
+    <string name="memory_leak">内存泄漏</string>
+    <string name="memory_churn">内存抖动</string>
+    <string name="memory_large_object">大对象分配</string>
+    <string name="memory_fragmentation">内存碎片化</string>
+    <string name="memory_oom">内存耗尽</string>
+    <string name="memory_cache_abuse">缓存过度使用</string>
+    <string name="memory_weak_reference">弱引用测试</string>
+    <string name="memory_concurrent_collection">并发集合测试</string>
+    <string name="memory_clear_leaks">清除内存泄漏</string>
+    <string name="memory_clear_leak">清理内存泄漏</string>
+    <string name="memory_leaks_cleared">内存泄漏已清除</string>
+    
+    <!-- 磁盘I/O测试 -->
+    <string name="disk_common_tip">磁盘I/O测试即将开始，存储性能可能会受到影响</string>
+    <string name="disk_sequential_write">顺序写入</string>
+    <string name="disk_sequential_read">顺序读取</string>
+    <string name="disk_random_small_file">随机小文件I/O</string>
+    <string name="disk_frequent_create_delete">频繁创建删除</string>
+    <string name="disk_fragmentation">文件碎片化</string>
+    <string name="disk_concurrent_io">并发I/O</string>
+    <string name="disk_filesystem_fill">文件系统填满</string>
+    
+    <!-- 网络测试 -->
+    <string name="network_common_tip">网络测试即将开始，网络性能可能会受到影响</string>
+    <string name="network_large_file_download">大文件下载</string>
+    <string name="network_concurrent_connections">并发连接</string>
+    <string name="network_latency_test">网络延迟测试</string>
+    <string name="network_jitter_test">网络抖动测试</string>
+    <string name="network_bandwidth_consumption">带宽占用</string>
+    <string name="network_connection_leak">连接泄漏</string>
+    <string name="network_dns_resolution_stress">DNS解析压力</string>
+    <string name="network_refresh_status">刷新网络状态</string>
+    <string name="current_network_status">当前网络状态</string>
+    
+    <!-- 电源测试 -->
+    <string name="power_common_tip">电源测试即将开始，电池可能会快速耗尽</string>
+    <string name="power_test_warning">警告：这些测试会快速消耗电池电量。请确保您的设备已充电或连接电源。</string>
+    <string name="power_cpu_high_load">CPU高负载耗电</string>
+    <string name="power_screen_on">屏幕常亮耗电</string>
+    <string name="power_gps">GPS持续定位耗电</string>
+    <string name="power_sensors">传感器持续监听耗电</string>
+    <string name="power_network">网络持续传输耗电</string>
+    <string name="power_mixed_scenario">混合场景耗电</string>
+    <string name="power_background">后台持续运行耗电</string>
+    
+    <!-- 资源泄漏测试 -->
+    <string name="resource_leak_test">资源泄漏类别</string>
+    <string name="resource_leak_common_tip">资源泄漏测试即将开始，系统资源可能会受到影响</string>
+    <string name="resource_leak_window">窗口泄漏</string>
+    <string name="resource_leak_activity">Activity泄漏</string>
+    <string name="resource_leak_pending_intent">PendingIntent泄漏</string>
+    <string name="resource_leak_alarm">闹钟泄漏</string>
+    <string name="resource_leak_binder_proxy">Binder代理全局引用泄漏</string>
+    <string name="resource_leak_job">任务调度器泄漏</string>
+    <string name="resource_leak_handler">Handler泄漏</string>
+    <string name="resource_leak_thread">线程泄漏</string>
+    <string name="resource_leak_context">Context泄漏</string>
+    <string name="resource_leak_clear">清理资源泄漏</string>
+    <string name="resource_leaks_cleared">资源泄漏已清除</string>
+    
+    <!-- 资源泄漏测试日志 -->
+    <string name="window_leak_start">开始窗口泄漏测试，目标泄漏: %1$d 个窗口</string>
+    <string name="window_leak_permission_error">缺少悬浮窗权限，无法创建窗口</string>
+    <string name="window_leak_permission_error_detail">请点击\"立即授权\"按钮，在系统设置中开启\"显示在其他应用上层\"权限</string>
+    <string name="window_leak_create_failed">窗口创建失败: %1$s</string>
+    <string name="window_leak_progress">已泄漏 %1$d / %2$d 个窗口</string>
+    <string name="window_leak_complete">窗口泄漏测试完成，总共泄漏: %1$d 个窗口</string>
+    <string name="window_leak_count">泄漏窗口数量: %1$d</string>
+    <string name="window_leak_error">窗口泄漏测试异常: %1$s</string>
+    
+    <string name="pending_intent_leak_start">开始PendingIntent泄漏测试，目标泄漏: %1$d 个PendingIntent</string>
+    <string name="pending_intent_leak_progress">已泄漏 %1$d / %2$d 个PendingIntent</string>
+    <string name="pending_intent_leak_complete">PendingIntent泄漏测试完成，总共泄漏: %1$d 个PendingIntent</string>
+    <string name="pending_intent_leak_count">泄漏PendingIntent数量: %1$d</string>
+    <string name="pending_intent_leak_error">PendingIntent泄漏测试异常: %1$s</string>
+    
+    <string name="alarm_leak_start">开始闹钟泄漏测试，目标泄漏: %1$d 个闹钟</string>
+    <string name="alarm_leak_progress">已泄漏 %1$d / %2$d 个闹钟</string>
+    <string name="alarm_leak_complete">闹钟泄漏测试完成，总共泄漏: %1$d 个闹钟</string>
+    <string name="alarm_leak_count">泄漏闹钟数量: %1$d</string>
+    <string name="alarm_leak_error">闹钟泄漏测试异常: %1$s</string>
+    
+    <string name="binder_leak_start">开始Binder代理泄漏测试，目标泄漏: %1$d 个Binder代理</string>
+    <string name="binder_leak_progress">已泄漏 %1$d / %2$d 个Binder代理</string>
+    <string name="binder_leak_complete">Binder代理泄漏测试完成，总共泄漏: %1$d 个Binder代理</string>
+    <string name="binder_leak_count">泄漏Binder代理数量: %1$d</string>
+    <string name="binder_leak_error">Binder代理泄漏测试异常: %1$s</string>
+    
+    <string name="job_leak_start">开始任务调度器泄漏测试，目标泄漏: %1$d 个任务</string>
+    <string name="job_leak_progress">已泄漏 %1$d / %2$d 个任务</string>
+    <string name="job_leak_complete">任务调度器泄漏测试完成，总共泄漏: %1$d 个任务</string>
+    <string name="job_leak_count">泄漏任务数量: %1$d</string>
+    <string name="job_leak_error">任务调度器泄漏测试异常: %1$s</string>
+    
+    <string name="job_leak_schedule_failed">任务调度失败，结果代码: %1$d</string>
+    <string name="job_leak_schedule_exception">任务调度异常: %1$s</string>
+    <string name="job_leak_fallback_failed">备选方案也失败，结果代码: %1$d</string>
+    <string name="job_leak_fallback_exception">备选方案异常: %1$s</string>
+    
+    <string name="handler_leak_start">开始Handler泄漏测试，目标泄漏: %1$d 个Handler</string>
+    <string name="handler_leak_message">这个消息不应该被执行，因为Handler已经泄漏</string>
+    <string name="handler_leak_progress">已泄漏 %1$d / %2$d 个Handler</string>
+    <string name="handler_leak_complete">Handler泄漏测试完成，总共泄漏: %1$d 个Handler</string>
+    <string name="handler_leak_count">泄漏Handler数量: %1$d</string>
+    <string name="handler_leak_error">Handler泄漏测试异常: %1$s</string>
+    
+    <string name="thread_leak_start">开始线程泄漏测试，目标泄漏: %1$d 个线程</string>
+    <string name="thread_leak_progress">已泄漏 %1$d / %2$d 个线程</string>
+    <string name="thread_leak_complete">线程泄漏测试完成，总共泄漏: %1$d 个线程</string>
+    <string name="thread_leak_count">泄漏线程数量: %1$d</string>
+    <string name="thread_leak_error">线程泄漏测试异常: %1$s</string>
+    
+    <string name="context_leak_start">开始Context泄漏测试，目标泄漏: %1$d 个Context</string>
+    <string name="context_leak_progress">已泄漏 %1$d / %2$d 个Context</string>
+    <string name="context_leak_complete">Context泄漏测试完成，总共泄漏: %1$d 个Context</string>
+    <string name="context_leak_count">泄漏Context数量: %1$d</string>
+    <string name="context_leak_error">Context泄漏测试异常: %1$s</string>
+    
+    <string name="activity_leak_start">开始Activity泄漏测试</string>
+    <string name="activity_leak_holding">持有Activity引用: %1$s</string>
+    <string name="activity_leak_info_failed">获取Activity信息失败: %1$s</string>
+    <string name="activity_leak_info">Activity信息 - 标题: %1$s, 包名: %2$s</string>
+    <string name="activity_leak_finished">Activity已经结束，但引用仍然存在</string>
+    <string name="activity_leak_alive">Activity仍然存活</string>
+    <string name="activity_leak_check_failed">检查Activity状态失败: %1$s</string>
+    <string name="activity_leak_thread_interrupted">Activity泄漏线程被中断</string>
+    <string name="activity_leak_error">Activity泄漏测试异常: %1$s</string>
+    <string name="activity_leak_complete">Activity泄漏测试完成，Activity将不会被正确回收</string>
+    <string name="activity_leak_created">Activity泄漏已创建</string>
+    <string name="activity_leak_detail">泄漏Activity: %1$s</string>
+    
+    <string name="clear_leaks_start">开始清理资源泄漏...</string>
+    <string name="clear_window_failed">移除窗口失败: %1$s</string>
+    <string name="clear_window_complete">已清理 %1$d 个窗口</string>
+    <string name="clear_pending_intent_complete">已清理 %1$d 个PendingIntent</string>
+    <string name="clear_alarm_complete">已清理 %1$d 个闹钟</string>
+    <string name="clear_job_complete">已清理 %1$d 个任务</string>
+    <string name="clear_thread_complete">已中断 %1$d 个线程</string>
+    <string name="clear_handler_complete">已清理 %1$d 个Handler</string>
+    <string name="clear_binder_complete">已清理Binder代理引用</string>
+    <string name="clear_context_complete">已清理Context引用</string>
+    <string name="clear_leaks_complete">资源泄漏清理完成</string>
+    <string name="clear_leaks_error">清理资源泄漏异常: %1$s</string>
+    <string name="stop_all_resource_tests">停止所有资源泄漏测试</string>
 </resources>

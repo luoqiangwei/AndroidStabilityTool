@@ -2,6 +2,132 @@
     <string name="app_name">StabilityTool</string>
     <string name="home_page_title">Stability Tool Home</string>
     <string name="home_tips">This tool is designed to simulate and test various types of stability conditions on this device.</string>
+    
+    <!-- 通用字符串 -->
+    <string name="stop_all_tests">Stop All Tests</string>
+    <string name="stopping_tests">Stopping all tests...</string>
+    <string name="back">Back</string>
+    <string name="clear_log">Clear Logs</string>
+    <string name="no_logs">No logs available</string>
+    <string name="test_logs">Test Logs</string>
+    <string name="authorize_now">Authorize Now</string>
+    <string name="tests_stopped">All tests have been stopped</string>
+    <string name="details_info">Details</string>
+    
+    <!-- 权限相关 -->
+    <string name="missing_overlay_permission">Missing Overlay Permission</string>
+    <string name="overlay_permission_required">Window leak test requires overlay permission to run properly</string>
+    <string name="overlay_permission_granted">Overlay permission granted, window leak test can now be performed</string>
+    <string name="please_allow_overlay">Please allow display over other apps in settings</string>
+    <string name="cannot_open_settings">Cannot open permission settings page: %1$s</string>
+    <string name="window_leak_test">Window Leak Test</string>
+    <string name="permission_required">Overlay permission required</string>
+    <string name="activity_leak_test">Activity Leak Test</string>
+    <string name="activity_instance_error">Cannot get Activity instance</string>
+    <string name="unknown_error">Unknown error</string>
+    <string name="missing_boot_permission">Note: Missing RECEIVE_BOOT_COMPLETED permission, cannot set task persistence</string>
+    
+    <!-- 资源泄漏测试 -->
+    <string name="resource_leak_test">Resource Leak Category</string>
+    <string name="resource_leak_common_tip">Resource leak test will start soon, system resources may be affected</string>
+    <string name="resource_leak_window">Window Leak</string>
+    <string name="resource_leak_activity">Activity Leak</string>
+    <string name="resource_leak_pending_intent">PendingIntent Leak</string>
+    <string name="resource_leak_alarm">Alarm Leak</string>
+    <string name="resource_leak_binder_proxy">Binder Proxy Global Reference Leak</string>
+    <string name="resource_leak_job">Job Scheduler Leak</string>
+    <string name="resource_leak_handler">Handler Leak</string>
+    <string name="resource_leak_thread">Thread Leak</string>
+    <string name="resource_leak_context">Context Leak</string>
+    <string name="resource_leak_clear">Clean up resource leaks</string>
+    <string name="resource_leaks_cleared">Resource leaks have been cleared</string>
+    
+    <!-- 资源泄漏测试日志 -->
+    <string name="window_leak_start">Starting window leak test, target leaks: %1$d windows</string>
+    <string name="window_leak_permission_error">Missing overlay permission, cannot create window</string>
+    <string name="window_leak_permission_error_detail">Please click the \"Authorize Now\" button to enable \"Display over other apps\" permission in system settings</string>
+    <string name="window_leak_create_failed">Window creation failed: %1$s</string>
+    <string name="window_leak_progress">Leaked %1$d / %2$d windows</string>
+    <string name="window_leak_complete">Window leak test completed, total leaks: %1$d windows</string>
+    <string name="window_leak_count">Leaked window count: %1$d</string>
+    <string name="window_leak_error">Window leak test error: %1$s</string>
+    
+    <string name="pending_intent_leak_start">Starting PendingIntent leak test, target leaks: %1$d PendingIntents</string>
+    <string name="pending_intent_leak_progress">Leaked %1$d / %2$d PendingIntents</string>
+    <string name="pending_intent_leak_complete">PendingIntent leak test completed, total leaks: %1$d PendingIntents</string>
+    <string name="pending_intent_leak_count">Leaked PendingIntent count: %1$d</string>
+    <string name="pending_intent_leak_error">PendingIntent leak test error: %1$s</string>
+    
+    <string name="alarm_leak_start">Starting alarm leak test, target leaks: %1$d alarms</string>
+    <string name="alarm_leak_progress">Leaked %1$d / %2$d alarms</string>
+    <string name="alarm_leak_complete">Alarm leak test completed, total leaks: %1$d alarms</string>
+    <string name="alarm_leak_count">Leaked alarm count: %1$d</string>
+    <string name="alarm_leak_error">Alarm leak test error: %1$s</string>
+    
+    <string name="binder_leak_start">Starting Binder proxy leak test, target leaks: %1$d Binder proxies</string>
+    <string name="binder_leak_progress">Leaked %1$d / %2$d Binder proxies</string>
+    <string name="binder_leak_complete">Binder proxy leak test completed, total leaks: %1$d Binder proxies</string>
+    <string name="binder_leak_count">Leaked Binder proxy count: %1$d</string>
+    <string name="binder_leak_error">Binder proxy leak test error: %1$s</string>
+    
+    <string name="job_leak_start">Starting job scheduler leak test, target leaks: %1$d jobs</string>
+    <string name="job_leak_progress">Leaked %1$d / %2$d jobs</string>
+    <string name="job_leak_complete">Job scheduler leak test completed, total leaks: %1$d jobs</string>
+    <string name="job_leak_count">Leaked job count: %1$d</string>
+    <string name="job_leak_error">Job scheduler leak test error: %1$s</string>
+    
+    <string name="job_leak_schedule_failed">Job scheduling failed, result code: %1$d</string>
+    <string name="job_leak_schedule_exception">Job scheduling exception: %1$s</string>
+    <string name="job_leak_fallback_failed">Fallback also failed, result code: %1$d</string>
+    <string name="job_leak_fallback_exception">Fallback exception: %1$s</string>
+    
+    <string name="handler_leak_start">Starting Handler leak test, target leaks: %1$d Handlers</string>
+    <string name="handler_leak_message">This message should not be executed because the Handler has leaked</string>
+    <string name="handler_leak_progress">Leaked %1$d / %2$d Handlers</string>
+    <string name="handler_leak_complete">Handler leak test completed, total leaks: %1$d Handlers</string>
+    <string name="handler_leak_count">Leaked Handler count: %1$d</string>
+    <string name="handler_leak_error">Handler leak test error: %1$s</string>
+    
+    <string name="thread_leak_start">Starting thread leak test, target leaks: %1$d threads</string>
+    <string name="thread_leak_progress">Leaked %1$d / %2$d threads</string>
+    <string name="thread_leak_complete">Thread leak test completed, total leaks: %1$d threads</string>
+    <string name="thread_leak_count">Leaked thread count: %1$d</string>
+    <string name="thread_leak_error">Thread leak test error: %1$s</string>
+    
+    <string name="context_leak_start">Starting Context leak test, target leaks: %1$d Contexts</string>
+    <string name="context_leak_progress">Leaked %1$d / %2$d Contexts</string>
+    <string name="context_leak_complete">Context leak test completed, total leaks: %1$d Contexts</string>
+    <string name="context_leak_count">Leaked Context count: %1$d</string>
+    <string name="context_leak_error">Context leak test error: %1$s</string>
+    
+    <string name="activity_leak_start">Starting Activity leak test</string>
+    <string name="activity_leak_holding">Holding Activity reference: %1$s</string>
+    <string name="activity_leak_info_failed">Failed to get Activity info: %1$s</string>
+    <string name="activity_leak_info">Activity info - Title: %1$s, Package: %2$s</string>
+    <string name="activity_leak_finished">Activity has finished, but reference still exists</string>
+    <string name="activity_leak_alive">Activity is still alive</string>
+    <string name="activity_leak_check_failed">Failed to check Activity status: %1$s</string>
+    <string name="activity_leak_thread_interrupted">Activity leak thread was interrupted</string>
+    <string name="activity_leak_error">Activity leak test error: %1$s</string>
+    <string name="activity_leak_complete">Activity leak test completed, Activity will not be properly garbage collected</string>
+    <string name="activity_leak_created">Activity leak created</string>
+    <string name="activity_leak_detail">Leaked Activity: %1$s</string>
+    
+    <string name="clear_leaks_start">Starting to clean up resource leaks...</string>
+    <string name="clear_window_failed">Failed to remove window: %1$s</string>
+    <string name="clear_window_complete">Cleaned up %1$d windows</string>
+    <string name="clear_pending_intent_complete">Cleaned up %1$d PendingIntents</string>
+    <string name="clear_alarm_complete">Cleaned up %1$d alarms</string>
+    <string name="clear_job_complete">Cleaned up %1$d jobs</string>
+    <string name="clear_thread_complete">Interrupted %1$d threads</string>
+    <string name="clear_handler_complete">Cleaned up %1$d Handlers</string>
+    <string name="clear_binder_complete">Cleaned up Binder proxy references</string>
+    <string name="clear_context_complete">Cleaned up Context references</string>
+    <string name="clear_leaks_complete">Resource leak cleanup completed</string>
+    <string name="clear_leaks_error">Resource leak cleanup error: %1$s</string>
+    <string name="stop_all_resource_tests">Stop all resource leak tests</string>
+    
+    <!-- 主页类别 -->
     <string name="anr_test">ANR Category</string>
     <string name="crash_test">Crash Category</string>
     <string name="cpu_test">CPU Performance Category</string>
@@ -9,6 +135,8 @@
     <string name="memory_test">Memory Category</string>
     <string name="network_test">Network Category</string>
     <string name="power_test">Power Category</string>
+    
+    <!-- ANR测试 -->
     <string name="anr_input_io_file">File IO Block (Input Anr)</string>
     <string name="anr_input_network_file">Network IO Block (Input Anr)</string>
     <string name="anr_input_loop_or_timeout">Loop / Timeout (Input Anr)</string>
@@ -18,4 +146,87 @@
     <string name="anr_input_ui_timeout">UI Timeout (Input Anr)</string>
     <string name="anr_common_tip">ANR will be triggered soon, and the app will \'freeze\'</string>
     <string name="anr_input_tip">ANR will be triggered soon, please keep tapping the screen, the app will \'freeze\'</string>
+    
+    <!-- 新增ANR测试字符串 -->
+    <string name="anr_thread_wait">Thread Wait ANR</string>
+    <string name="anr_synchronized_method">Synchronized Method ANR</string>
+    <string name="anr_system_call">System Call ANR</string>
+    <string name="anr_broadcast_receiver">Broadcast Receiver ANR (10s)</string>
+    <string name="anr_content_provider">ContentProvider ANR (10s)</string>
+    <string name="anr_service">Service ANR (20s)</string>
+    <string name="anr_broadcast_receiver_tip">Broadcast Receiver ANR will be triggered soon, please wait...</string>
+    <string name="anr_service_tip">Service ANR will be triggered soon, please wait...</string>
+    <string name="anr_content_provider_tip">ContentProvider needs to be registered in AndroidManifest.xml, this button is just for demonstration</string>
+    <string name="anr_network_tip">Note: On Android 9+, this will trigger a StrictMode exception instead of ANR</string>
+    <string name="anr_exception_triggered">Exception triggered: %1$s</string>
+    
+    <!-- 崩溃测试 -->
+    <string name="crash_common_tip">Crash will be triggered soon, the app may close</string>
+    <string name="crash_null_pointer">Null Pointer Exception</string>
+    <string name="crash_array_index">Array Index Out Of Bounds</string>
+    <string name="crash_class_cast">Class Cast Exception</string>
+    <string name="crash_oom">Out Of Memory Error</string>
+    <string name="crash_stack_overflow">Stack Overflow Error</string>
+    <string name="crash_sigsegv">SIGSEGV (Segmentation Fault)</string>
+    <string name="crash_sigabrt">SIGABRT (Abort)</string>
+    <string name="crash_app_exit">App Exit</string>
+    <string name="crash_filesystem">File System Crash</string>
+    
+    <!-- CPU性能测试 -->
+    <string name="cpu_common_tip">CPU test will start soon, device may become hot</string>
+    <string name="cpu_single_core">Single Core High Load</string>
+    <string name="cpu_multi_core">Multi Core High Load</string>
+    <string name="cpu_single_core_high_load">Single Core High Load Test</string>
+    <string name="cpu_multi_core_high_load">Multi Core High Load Test</string>
+    <string name="cpu_frequent_gc">Frequent Garbage Collection</string>
+    <string name="cpu_thread_churn">Thread Creation Churn</string>
+    <string name="cpu_prime_calculation">Prime Number Calculation</string>
+    <string name="cpu_temperature_rise">Temperature Rise Test</string>
+    
+    <!-- 内存测试 -->
+    <string name="memory_common_tip">Memory test will start soon, app may become slow</string>
+    <string name="memory_leak">Memory Leak</string>
+    <string name="memory_churn">Memory Churn</string>
+    <string name="memory_large_object">Large Object Allocation</string>
+    <string name="memory_fragmentation">Memory Fragmentation</string>
+    <string name="memory_oom">Out Of Memory</string>
+    <string name="memory_cache_abuse">Cache Abuse</string>
+    <string name="memory_weak_reference">Weak Reference Test</string>
+    <string name="memory_concurrent_collection">Concurrent Collection Test</string>
+    <string name="memory_clear_leaks">Clear Memory Leaks</string>
+    <string name="memory_clear_leak">Clear Memory Leak</string>
+    <string name="memory_leaks_cleared">Memory leaks have been cleared</string>
+    
+    <!-- 磁盘I/O测试 -->
+    <string name="disk_common_tip">Disk I/O test will start soon, storage performance may be affected</string>
+    <string name="disk_sequential_write">Sequential Write</string>
+    <string name="disk_sequential_read">Sequential Read</string>
+    <string name="disk_random_small_file">Random Small File I/O</string>
+    <string name="disk_frequent_create_delete">Frequent Create/Delete</string>
+    <string name="disk_fragmentation">File Fragmentation</string>
+    <string name="disk_concurrent_io">Concurrent I/O</string>
+    <string name="disk_filesystem_fill">File System Fill</string>
+    
+    <!-- 网络测试 -->
+    <string name="network_common_tip">Network test will start soon, network performance may be affected</string>
+    <string name="network_large_file_download">Large File Download</string>
+    <string name="network_concurrent_connections">Concurrent Connections</string>
+    <string name="network_latency_test">Network Latency Test</string>
+    <string name="network_jitter_test">Network Jitter Test</string>
+    <string name="network_bandwidth_consumption">Bandwidth Consumption</string>
+    <string name="network_connection_leak">Connection Leak</string>
+    <string name="network_dns_resolution_stress">DNS Resolution Stress</string>
+    <string name="network_refresh_status">Refresh Network Status</string>
+    <string name="current_network_status">Current Network Status</string>
+    
+    <!-- 电源测试 -->
+    <string name="power_common_tip">Power test will start soon, battery may drain quickly</string>
+    <string name="power_test_warning">Warning: These tests will consume battery quickly. Make sure your device is charged or connected to power.</string>
+    <string name="power_cpu_high_load">CPU High Load Power Drain</string>
+    <string name="power_screen_on">Screen Always On Power Drain</string>
+    <string name="power_gps">GPS Continuous Power Drain</string>
+    <string name="power_sensors">Sensors Continuous Power Drain</string>
+    <string name="power_network">Network Continuous Power Drain</string>
+    <string name="power_mixed_scenario">Mixed Scenario Power Drain</string>
+    <string name="power_background">Background Power Drain</string>
 </resources>

@@ -70,28 +70,38 @@ fun HomePage(navController: NavHostController) {
 
                     // Crash Category
                     CommonButton(text = stringResource(R.string.crash_test)) {
-
+                        navController.navigate("crash")
                     }
 
                     // Cpu Performance Category
                     CommonButton(text = stringResource(R.string.cpu_test)) {
-
+                        navController.navigate("cpu")
                     }
 
                     // Disk I/O Category
                     CommonButton(text = stringResource(R.string.disk_test)) {
-
+                        navController.navigate("disk")
                     }
                 }
                 Column(modifier = Modifier
                     .padding(all = ColumnCommonPadding)
                     .fillMaxSize()) {
 
-                    CommonButton(text = stringResource(R.string.network_test)) { }
+                    CommonButton(text = stringResource(R.string.network_test)) { 
+                        navController.navigate("network")
+                    }
 
-                    CommonButton(text = stringResource(R.string.memory_test)) { }
+                    CommonButton(text = stringResource(R.string.memory_test)) { 
+                        navController.navigate("memory")
+                    }
 
-                    CommonButton(text = stringResource(R.string.power_test)) { }
+                    CommonButton(text = stringResource(R.string.power_test)) { 
+                        navController.navigate("power")
+                    }
+                    
+                    CommonButton(text = stringResource(R.string.resource_leak_test)) { 
+                        navController.navigate("resource_leak")
+                    }
                 }
             }
         }

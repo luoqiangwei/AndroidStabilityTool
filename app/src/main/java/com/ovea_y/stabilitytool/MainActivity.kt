@@ -20,11 +20,56 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.ovea_y.stabilitytool.subui.AnrCategoryPage
+import com.ovea_y.stabilitytool.subui.CpuCategoryPage
+import com.ovea_y.stabilitytool.subui.CrashCategoryPage
+import com.ovea_y.stabilitytool.subui.DiskCategoryPage
+import com.ovea_y.stabilitytool.subui.MemoryCategoryPage
+import com.ovea_y.stabilitytool.subui.NetworkCategoryPage
+import com.ovea_y.stabilitytool.subui.PowerCategoryPage
+import com.ovea_y.stabilitytool.subui.ResourceLeakCategoryPage
 import com.ovea_y.stabilitytool.ui.theme.StabilityToolTheme
+import com.ovea_y.stabilitytool.utils.PermissionUtils
 
 class MainActivity : ComponentActivity() {
+    companion object {
+        // 用于Activity泄漏测试的静态引用
+        private var instance: MainActivity? = null
+        
+        fun getInstance(): MainActivity? {
+            return instance
+        }
+    }
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        
+        // 设置静态引用，用于Activity泄漏测试
+        instance = this
+
+        // 重启后自动触发查询（需主线程同步调用）
+        val prefs = getSharedPreferences("anr_config", MODE_PRIVATE)
+        if (prefs.getBoolean("onIndexAnr", false) && prefs.getBoolean("block_oncreate_index", false)) {
+            prefs
+                .edit()
+                .putBoolean("block_oncreate_index", false)
+                .putBoolean("onIndexAnr", false)
+                .commit()
+        } else {
+            prefs
+                .edit()
+                .putBoolean("onIndexAnr", true)
+                .commit()
+        }
+        if (prefs.getBoolean("block_oncreate_index", false)) {
+            Thread.sleep(10000)
+            prefs.edit().putBoolean("block_oncreate_index", false).commit() // 清除标记
+        }
+        
+        // 请求必要的权限
+        if (!PermissionUtils.hasAllPermissions(this)) {
+            PermissionUtils.requestAllPermissions(this)
+        }
+        
         enableEdgeToEdge()
         setContent {
             StabilityToolTheme {
@@ -45,8 +90,22 @@ class MainActivity : ComponentActivity() {
                 ) {
                     composable("home") { HomePage(navController) }
                     composable("anr") { AnrCategoryPage(navController) }
+                    composable("crash") { CrashCategoryPage(navController) }
+                    composable("cpu") { CpuCategoryPage(navController) }
+                    composable("disk") { DiskCategoryPage(navController) }
+                    composable("memory") { MemoryCategoryPage(navController) }
+                    composable("network") { NetworkCategoryPage(navController) }
+                    composable("power") { PowerCategoryPage(navController) }
+                    composable("resource_leak") { ResourceLeakCategoryPage(navController) }
                 }
             }
         }
     }
+    
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        PermissionUtils.handlePermissionResult(requestCode, permissions, grantResults)
+    }
+
+
 }
